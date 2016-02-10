@@ -1,10 +1,11 @@
+ENV['RACK_ENV'] ||= 'development'
+
 require 'sinatra/base'
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require './app/models/link.rb'
 
 class BookmarkManager < Sinatra::Base
-  # enable :sessions
 
   get '/' do
     redirect '/links'
