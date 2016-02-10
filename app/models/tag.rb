@@ -1,14 +1,13 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
-class Link
+class Tag
   include DataMapper::Resource
 
   property :id,         Serial
-  property :title,      String
-  property :url,        String
-  property :added_at,   DateTime
   property :tag,        String
+  property :date_added,  DateTime
+
 end
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}")
