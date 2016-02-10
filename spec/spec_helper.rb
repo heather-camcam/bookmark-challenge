@@ -6,6 +6,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require './app/models/link.rb'
+require './app/models/tag.rb'
 
 Capybara.app = BookmarkManager
 
@@ -22,5 +24,4 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
 end

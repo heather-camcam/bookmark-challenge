@@ -4,12 +4,9 @@ require 'dm-postgres-adapter'
 class Tag
   include DataMapper::Resource
 
-  property :id,         Serial
-  property :tag,        String
-  property :date_added,  DateTime
+  has n, :links, through: Resource
 
+  property :id,           Serial
+  property :date_added,   DateTime
+  property :name,         String
 end
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}")
-DataMapper.finalize
-DataMapper.auto_upgrade!
