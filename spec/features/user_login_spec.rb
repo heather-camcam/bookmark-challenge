@@ -7,7 +7,7 @@ feature 'user login' do
     expect{create_account}.to change(User, :count).by(1)
   end
 
-  scenario 'redirects to welcome page about account creation' do
+  scenario 'redirects to welcome page after account creation' do
     create_account
     expect(page).to have_content 'Welcome test@test.com!'
   end
