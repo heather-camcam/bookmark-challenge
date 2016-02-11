@@ -62,10 +62,7 @@ GEM
       dm-core (~> 1.2.0)
     do_postgres (0.10.17)
       data_objects (= 0.10.17)
-    faker (1.6.1)
-      i18n (~> 0.5)
     fastercsv (1.5.5)
-    i18n (0.7.0)
     json (1.8.3)
     json_pure (1.8.3)
     mime-types (3.0)
@@ -108,12 +105,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   data_mapper
   database_cleaner
   dm-postgres-adapter
   dm-transactions
-  faker
   rake
   rspec
   sinatra
