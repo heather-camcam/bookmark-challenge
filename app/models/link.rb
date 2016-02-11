@@ -8,6 +8,6 @@ class Link
 
   property :id,         Serial
   property :title,      String
-  property :url,        String
+  property :url,        Text
   property :added_at,   DateTime
 end
