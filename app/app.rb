@@ -46,8 +46,8 @@ set :session_secret, 'super secret'
     redirect '/signup/confirmation'
   end
 
-  get '/confirmation' do
-    erb :'confirmation'
+  get '/signup/confirmation' do
+    erb :'links/confirmation'
   end
 
   helpers do
