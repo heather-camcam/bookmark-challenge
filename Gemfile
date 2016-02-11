@@ -6,10 +6,7 @@ gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-transactions'
 gem 'sinatra'
+gem 'rspec'
+gem 'capybara'
 gem 'rake'
-
-
-group :test do
-  gem 'rspec'
-  gem 'capybara'
-end
+gem 'faker'
