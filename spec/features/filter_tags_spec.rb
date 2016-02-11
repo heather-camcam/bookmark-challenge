@@ -5,7 +5,7 @@ feature 'filter and view tags' do
     create_bookmark
     fill_in('name', with: 'social')
     click_button 'Submit'
-    visit '/tag/social'
+    visit '/tags/social'
     expect(page).to have_content('Useless Web')
   end
 end
