@@ -27,7 +27,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/tags/:name' do
-    tag = Tag.last(name: params[:name])
+    tag = Tag.all(name: params[:name])
     @links = tag ? tag.links : []
     erb :'links/filter_tags'
   end
