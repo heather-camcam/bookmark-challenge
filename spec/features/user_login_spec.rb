@@ -25,7 +25,7 @@ feature 'user login' do
   scenario 'error message shown if password confirmation entered incorrectly' do
     create_account_with_incorrect_password
     click_button 'Submit'
-    expect(page).to have_content 'Password and confirmation password do not match'
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 
   scenario 'user cannot sign up unless email address entered' do
@@ -36,4 +36,9 @@ feature 'user login' do
     expect{click_button 'Submit'}.not_to change(User, :count)
   end
 
+  scenario 'user cannot sign in with a duplicate email address' do
+    create_account
+    expect{create_account}.not_to change(User, :count)
+    expect(page).to have_content 'Email is already taken'
+  end
 end
