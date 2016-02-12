@@ -2,7 +2,7 @@
 
 <form action="/signup" method="post">
   <label for="email">
-    Email address: <input type="text" name="email">
+    Email address: <input type="text" name="email" value="<%= @user.email %>">
   </label>
   <label for="password">
     Password:<input type="password" name="password">
@@ -12,3 +12,7 @@
   </label>
   <input type="submit" name="submit" value="Submit">
 </form>
+
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>

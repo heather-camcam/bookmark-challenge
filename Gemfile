@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby '2.3.0'
+ruby '2.2.3'
 
 gem 'database_cleaner'
 gem 'data_mapper'
@@ -11,3 +11,4 @@ gem 'capybara'
 gem 'rake'
 gem 'bcrypt'
 gem 'launchy'
+gem 'sinatra-flash'

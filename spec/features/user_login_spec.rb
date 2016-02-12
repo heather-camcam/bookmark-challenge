@@ -19,13 +19,14 @@ feature 'user login' do
   end
 
   scenario 'password matches confirmation password' do
-    visit '/'
-    click_link 'Create an account'
-    fill_in('email', with: 'test12@test12.com')
-    fill_in('password', with: 'qwerty')
-    fill_in('password_confirmation', with: '456778')
+    create_account_with_incorrect_password
     expect{click_button 'Submit'}.not_to change(User, :count)
+  end
 
+  scenario 'error message shown if password confirmation entered incorrectly' do
+    create_account_with_incorrect_password
+    click_button 'Submit'
+    expect(page).to have_content 'Password and confirmation password do not match'
   end
 
 end
