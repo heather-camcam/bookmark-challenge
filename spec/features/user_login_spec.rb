@@ -41,4 +41,6 @@ feature 'user login' do
     expect{create_account}.not_to change(User, :count)
     expect(page).to have_content 'Email is already taken'
   end
+
+  
 end
