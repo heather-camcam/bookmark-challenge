@@ -18,4 +18,14 @@ feature 'user login' do
     expect(user.email).to eq("test@test.com")
   end
 
+  scenario 'password matches confirmation password' do
+    visit '/'
+    click_link 'Create an account'
+    fill_in('email', with: 'test12@test12.com')
+    fill_in('password', with: 'qwerty')
+    fill_in('password_confirmation', with: '456778')
+    expect{click_button 'Submit'}.not_to change(User, :count)
+
+  end
+
 end
