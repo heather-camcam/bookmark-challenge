@@ -3,7 +3,6 @@ require 'web_helper'
 feature 'user login' do
 
   scenario 'user count increases by 1 when user creates account' do
-    create_account
     expect{create_account}.to change(User, :count).by(1)
   end
 
@@ -27,6 +26,14 @@ feature 'user login' do
     create_account_with_incorrect_password
     click_button 'Submit'
     expect(page).to have_content 'Password and confirmation password do not match'
+  end
+
+  scenario 'user cannot sign up unless email address entered' do
+    visit '/'
+    click_link 'Create an account'
+    fill_in('password', with: 'qwerty')
+    fill_in('password_confirmation', with: 'qwerty')
+    expect{click_button 'Submit'}.not_to change(User, :count)
   end
 
 end

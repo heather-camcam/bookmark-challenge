@@ -8,13 +8,18 @@ class User
   include BCrypt
 
   property :id,               Serial
-  property :email,            String
   property :password_digest,  Text
+  property :email,            String,
+            :required =>      true,
+            :unique   =>      true,
+            :format   =>      :email_address
 
   attr_reader :password
   attr_accessor :password_confirmation
 
-  validates_confirmation_of :password #, :confirm => :password_confirmation
+  validates_confirmation_of :password
+  # validates_presence_of :email
+  validates_format_of :email, as: :email_address
 
   def password=(password)
     @password = password
